@@ -2,7 +2,7 @@ name: Daily job scan
 
 on:
   schedule:
-    - cron: '0 12 * * *'   # Runs every day at 8am Eastern (noon UTC)
+    - cron: '0 12 * * 2'     # Runs every day at 8am Eastern (noon UTC)
   workflow_dispatch:         # Also lets you trigger it manually from GitHub
 
 jobs:
