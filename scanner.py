@@ -10,12 +10,43 @@ from datetime import datetime
 # ─────────────────────────────────────────
 
 SEARCH_QUERIES = [
-    "project manager Northeast",
-    "operations manager Albany NY",
-    "business analyst Boston",
-    "program manager hybrid New York",
-    "operations director Miami",
-    "project manager South Florida hybrid",
+    # Small niche lines — pull everything recent
+    "Lindblad Expeditions jobs",
+    "American Cruise Lines jobs",
+    "UnCruise Adventures jobs",
+    "Windstar Cruises jobs",
+    "Viking River Cruises jobs",
+    "Viking Ocean Cruises jobs",
+
+    # Big cruise corporations — filtered to relevant roles
+    "Carnival Corporation coordinator",
+    "Carnival Corporation associate",
+    "Carnival Corporation operations",
+    "Royal Caribbean coordinator",
+    "Royal Caribbean associate",
+    "Royal Caribbean rotational program",
+    "Norwegian Cruise Line coordinator",
+    "Norwegian Cruise Line associate",
+    "MSC Cruises coordinator",
+    "Disney Cruise Line coordinator",
+    "Disney Cruise Line associate",
+
+    # Broad cruise industry sweeps — catches anyone
+    "cruise line coordinator entry level",
+    "cruise line operations associate",
+    "cruise line rotational program",
+    "cruise operations coordinator East Coast",
+    "expedition cruise associate hiring",
+
+    # Marine and conservation broad sweeps
+    "marine conservation coordinator East Coast",
+    "ocean sustainability associate Northeast",
+    "marine educator coordinator",
+    "coastal conservation associate Florida",
+    "marine affairs associate entry level",
+    "aquarium coordinator Northeast",
+    "aquarium operations associate Florida",
+    "marine science program coordinator",
 ]
 
 SHEET_NAME = "Job Scanner"  # Must match your Google Sheet name exactly
@@ -53,10 +84,12 @@ def get_existing_links(sheet):
 def search_jobs(query):
     """Call SerpAPI's Google Jobs endpoint for a given search query."""
     params = {
-        "engine": "google_jobs",
+       	"engine": "google_jobs",
         "q": query,
         "api_key": SERPAPI_KEY,
-        "chips": "date_posted:week",  # Only jobs from the last week
+        "chips": "date_posted:week",
+        "hl": "en",
+        "gl": "us",
     }
     
     try:
