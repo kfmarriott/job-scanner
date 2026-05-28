@@ -1,0 +1,28 @@
+name: Daily job scan
+
+on:
+  schedule:
+    - cron: '0 12 * * *'   # Runs every day at 8am Eastern (noon UTC)
+  workflow_dispatch:         # Also lets you trigger it manually from GitHub
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run scanner
+        env:
+          SERPAPI_KEY: ${{ secrets.SERPAPI_KEY }}
+          GOOGLE_CREDENTIALS: ${{ secrets.GOOGLE_CREDENTIALS }}
+        run: python scanner.py
