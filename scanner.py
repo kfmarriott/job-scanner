@@ -1,6 +1,7 @@
 import os
 import json
 import requests
+import time
 import gspread
 from google.oauth2.service_account import Credentials
 from datetime import datetime
@@ -176,6 +177,7 @@ def run_scanner():
             existing_links.add(parsed["link"])
             new_jobs_count += 1
             print(f"  Added: {parsed['title']} at {parsed['company']} ({parsed['location']})")
+            time.sleep(1.5)
     
     print(f"\nDone. {new_jobs_count} new jobs added to sheet.")
 
