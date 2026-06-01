@@ -137,14 +137,26 @@ def is_remote_only(job):
     return False
 
 def is_wrong_level(job):
-    """Filter out jobs that are clearly too senior or irrelevant."""
+    """Filter out jobs that are clearly too senior, irrelevant, or shipboard crew."""
     title = job.get("title", "").lower()
     
     hard_excludes = [
-        "uscg master", "firefight", "medical",
-        "historian", "chief mate", "chief engineer",
+        # Too senior
+        "uscg master", "chief mate", "chief engineer",
         "senior engineer", "staff engineer",
         "vp ", "vice president", "cto", "cfo", "coo", "ceo",
+        # Irrelevant specialisms
+        "firefight", "medical", "historian",
+        # Shipboard hospitality crew
+        "chef", "waiter", "waitress", "food server", "server",
+        "housekeeper", "housekeeping", "public room attendant",
+        "concierge", "bartender", "barista", "sommelier",
+        "steward", "stewardess", "cabin crew", "cabin steward",
+        "dishwasher", "cook ", "sous chef", "pastry",
+        "laundry", "room attendant", "galley",
+        "boatswain", "electrician", "welder", "plumber", 
+	"pipefitter", "oiler", "wiper", "engineer cadet",
+        "security officer", "safety officer",
     ]
     
     return any(term in title for term in hard_excludes)
