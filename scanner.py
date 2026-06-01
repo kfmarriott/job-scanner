@@ -149,6 +149,28 @@ def is_wrong_level(job):
     
     return any(term in title for term in hard_excludes)
 
+def requires_too_much_experience(job):
+    """Filter out jobs explicitly requiring more than 5 years experience."""
+    
+    # Check title and description snippet
+    title = job.get("title", "").lower()
+    description = job.get("description", "").lower()
+    text = title + " " + description
+    
+    experience_patterns = [
+        "6+ years", "6 or more years", "6 years",
+        "7+ years", "7 or more years", "7 years",
+        "8+ years", "8 or more years", "8 years",
+        "9+ years", "9 or more years", "9 years",
+        "10+ years", "10 or more years", "10 years",
+        "minimum 6 years", "minimum 7 years",
+        "minimum 8 years", "minimum 10 years",
+        "at least 6 years", "at least 7 years",
+        "at least 8 years", "at least 10 years",
+    ]
+    
+    return any(pattern in text for pattern in experience_patterns)
+
 def run_scanner():
     """Main function — runs all searches and writes new jobs to the sheet."""
     print(f"Starting job scan at {datetime.now().strftime('%Y-%m-%d %H:%M')}")
@@ -178,7 +200,12 @@ def run_scanner():
             if is_wrong_level(parsed):
                 print(f"  Skipping wrong level: {parsed['title']} at {parsed['company']}")
                 continue
-            
+
+            # Skip jobs requiring more than 5 years experience
+            if requires_too_much_experience(parsed):
+                print(f"  Skipping overqualified: {parsed['title']} at {parsed['company']}")
+                continue            
+
             # Write to sheet
             row = [
                 parsed["date_found"],
