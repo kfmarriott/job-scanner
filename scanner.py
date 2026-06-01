@@ -137,6 +137,19 @@ def is_remote_only(job):
     
     return False
 
+def is_wrong_level(job):
+    """Filter out jobs that are clearly too senior or irrelevant."""
+    title = job.get("title", "").lower()
+    
+    hard_excludes = [
+        "uscg master", "firefight", "medical",
+        "historian", "chief mate", "chief engineer",
+        "senior engineer", "staff engineer",
+        "vp ", "vice president", "cto", "cfo", "coo", "ceo",
+    ]
+    
+    return any(term in title for term in hard_excludes)
+
 def run_scanner():
     """Main function — runs all searches and writes new jobs to the sheet."""
     print(f"Starting job scan at {datetime.now().strftime('%Y-%m-%d %H:%M')}")
@@ -160,6 +173,11 @@ def run_scanner():
             # Skip fully remote jobs
             if is_remote_only(parsed):
                 print(f"  Skipping remote: {parsed['title']} at {parsed['company']}")
+                continue
+
+            # Skip clearly wrong level or irrelevant roles
+            if is_wrong_level(parsed):
+                print(f"  Skipping wrong level: {parsed['title']} at {parsed['company']}")
                 continue
             
             # Write to sheet
