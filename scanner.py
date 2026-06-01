@@ -11,43 +11,49 @@ from datetime import datetime
 # ─────────────────────────────────────────
 
 SEARCH_QUERIES = [
-    # Small niche lines — pull everything recent
+    # Small niche lines
     "Lindblad Expeditions jobs",
-    "American Cruise Lines jobs",
+    "American Cruise Lines coordinator",
+    "American Cruise Lines marine",
     "UnCruise Adventures jobs",
     "Windstar Cruises jobs",
     "Viking River Cruises jobs",
     "Viking Ocean Cruises jobs",
 
-    # Big cruise corporations — filtered to relevant roles
+    # Big cruise corporations
     "Carnival Corporation coordinator",
     "Carnival Corporation associate",
-    "Carnival Corporation operations",
     "Royal Caribbean coordinator",
     "Royal Caribbean associate",
-    "Royal Caribbean rotational program",
     "Norwegian Cruise Line coordinator",
     "Norwegian Cruise Line associate",
     "MSC Cruises coordinator",
     "Disney Cruise Line coordinator",
     "Disney Cruise Line associate",
 
-    # Broad cruise industry sweeps — catches anyone
+    # Broad cruise sweeps
     "cruise line coordinator entry level",
-    "cruise line operations associate",
     "cruise line rotational program",
-    "cruise operations coordinator East Coast",
     "expedition cruise associate hiring",
+    "small ship cruise coordinator hiring",
 
-    # Marine and conservation broad sweeps
+    # Marine and conservation
+    "marine operations coordinator hiring",
     "marine conservation coordinator East Coast",
-    "ocean sustainability associate Northeast",
-    "marine educator coordinator",
-    "coastal conservation associate Florida",
-    "marine affairs associate entry level",
     "aquarium coordinator Northeast",
-    "aquarium operations associate Florida",
-    "marine science program coordinator",
+    "coastal conservation associate Florida",
+    "marine naturalist coordinator",
+    "voyage coordinator entry level",
+
+    # Sustainability and environmental consulting
+    "marine environmental consulting associate",
+    "coastal sustainability coordinator Northeast",
+    "blue economy coordinator associate",
+
+    # Port and marina development
+    "marina operations coordinator East Coast",
+    "waterfront development coordinator",
+    "port operations associate coordinator",
 ]
 
 SHEET_NAME = "Job Scanner"  # Must match your Google Sheet name exactly
