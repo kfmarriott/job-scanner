@@ -88,7 +88,6 @@ def search_jobs(query):
        	"engine": "google_jobs",
         "q": query,
         "api_key": SERPAPI_KEY,
-        "chips": "date_posted:week",
         "hl": "en",
         "gl": "us",
     }
