@@ -151,6 +151,11 @@ def is_wrong_level(job):
         "uscg master", "chief mate", "chief engineer",
         "senior engineer", "staff engineer",
         "vp ", "vice president", "cto", "cfo", "coo", "ceo",
+        # Officer titles
+        "deck officer", "chief officer", "safety officer",
+        "security officer", "medical officer", "engineering officer",
+        "third officer", "second officer", "first officer",
+        "staff captain", "port officer", "flag officer",
         # Irrelevant specialisms
         "firefight", "medical", "historian",
         # Shipboard hospitality crew
@@ -158,8 +163,8 @@ def is_wrong_level(job):
         "housekeeper", "housekeeping", "public room attendant",
         "concierge", "bartender", "barista", "sommelier",
         "steward", "stewardess", "cabin crew", "cabin steward",
-        "dishwasher", "cook ", "sous chef", "pastry",
-        "laundry", "room attendant", "galley",
+        "dishwasher", "cook ", "sous chef", "pastry", "MBA"
+        "laundry", "room attendant", "galley", "casino"
         "boatswain", "electrician", "welder", "plumber", 
 	"pipefitter", "oiler", "wiper", "engineer cadet",
         "security officer", "safety officer",
