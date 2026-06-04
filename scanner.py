@@ -149,7 +149,7 @@ def is_wrong_level(job):
     hard_excludes = [
         # Too senior
         "uscg master", "chief mate", "chief engineer",
-        "senior engineer", "staff engineer",
+        "senior engineer", "staff engineer", "engineer",
         "vp ", "vice president", "cto", "cfo", "coo", "ceo",
         # Officer titles
         "deck officer", "chief officer", "safety officer",
