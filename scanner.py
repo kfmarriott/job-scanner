@@ -157,7 +157,7 @@ def is_wrong_level(job):
         "third officer", "second officer", "first officer",
         "staff captain", "port officer", "flag officer",
         # Irrelevant specialisms
-        "firefight", "medical", "historian",
+        "firefight", "medical", "historian", "lawyer",
         # Shipboard hospitality crew
         "chef", "waiter", "waitress", "food server", "server",
         "housekeeper", "housekeeping", "public room attendant",
