@@ -38,8 +38,8 @@ SEARCH_QUERIES = [
     "small ship cruise coordinator hiring",
 
     # Marine and conservation
-    "marine operations coordinator hiring",
-    "marine conservation coordinator East Coast",
+    "marine operations hiring",
+    "marine conservation East Coast",
     "aquarium coordinator Northeast",
     "coastal conservation associate Florida",
     "marine naturalist coordinator",
